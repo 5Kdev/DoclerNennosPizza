@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="?android:attr/selectableItemBackgroundBorderless"
+    >
+
+    <TextView
+        android:id="@+id/ingredientName"
+        style="@style/IngredientsListTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:text="Asparagus" />
+
+    <TextView
+        android:id="@+id/ingredientPrice"
+        style="@style/IngredientsListPrice"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:text="$5" />
+</LinearLayout>

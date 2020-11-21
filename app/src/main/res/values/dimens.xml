@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="pizzaListItemHeight">304dp</dimen>
+    <dimen name="pizzaDetailHeight">125dp</dimen>
+</resources>

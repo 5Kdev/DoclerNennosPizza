@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/pizzaListContainer"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/pizzaListItemHeight"
+    android:background="@drawable/bg_wood"
+    >
+
+    <ImageView
+        android:layout_margin="30dp"
+        android:id="@+id/pizzaListImage"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="fitCenter"
+        tools:ignore="MissingConstraints"
+        android:contentDescription="@string/pizzaimage" />
+
+    <LinearLayout
+        style="@style/PizzaDetailBlock"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/pizzaDetailHeight"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <TextView
+            android:id="@+id/pizzaListName"
+            style="@style/PizzaListTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            tools:text="Primavera" />
+
+        <TextView
+            android:id="@+id/pizzaListIngredients"
+            style="@style/PizzaListSubTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            tools:text="Mozzarella, Mushrooms, Asparagus" />
+
+        <Button
+            android:id="@+id/pizzaListOrder"
+            style="@style/PizzaListOrderBtn"
+            android:foreground="?attr/selectableItemBackgroundBorderless"
+            android:clickable="true"
+            tools:text="$10" />
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="?attr/actionBarSize">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <ImageView
+                android:padding="10dp"
+                android:id="@+id/pizzaImage"
+                android:layout_width="match_parent"
+                android:layout_height="250dp"
+                android:background="@drawable/bg_wood"
+                android:contentDescription="@string/pizzaimage"
+                android:scaleType="fitCenter"
+                app:srcCompat="@drawable/custom"
+                tools:ignore="MissingConstraints" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Ingredients"
+                style="@style/IngredientsTitle"
+                android:padding="8dp"
+                android:paddingLeft="15dp"/>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/ingredients_list"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:layout_constraintBottom_toTopOf="@+id/check_out"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/toolbar"
+                tools:listitem="@layout/ingredients_list_item" />
+        </LinearLayout>
+    </ScrollView>
+
+
+    <include layout="@layout/toolbar" />
+
+    <Button
+        android:id="@+id/add_to_cart"
+        style="@style/BottomCtaBtn"
+        android:text="Back to home"
+        android:layout_gravity="bottom"
+        android:background="@color/mainText"
+        tools:ignore="MissingConstraints" />
+
+
+</FrameLayout>

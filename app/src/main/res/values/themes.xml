@@ -1,0 +1,150 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Theme.NennosPizza" parent="Theme.AppCompat.DayNight.NoActionBar">
+        <!-- Primary brand color. -->
+        <item name="colorPrimary">@color/navBar</item>
+        <!-- Secondary brand color. -->
+        <item name="colorSecondary">@color/statusBar</item>
+        <!-- Status bar color. -->
+        <item name="android:statusBarColor" tools:targetApi="l">@color/statusBar</item>
+        <!-- Customize your theme here. -->
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="ActionBar" parent="@style/ThemeOverlay.AppCompat.ActionBar">
+        <item name="android:titleTextStyle">@style/ToolbarTitel</item>
+        <item name="titleTextColor">@color/mainText</item>
+    </style>
+
+    <style name="ToolbarTitel" parent="TextAppearance.Widget.AppCompat.Toolbar.Title">
+        <item name="android:textColor">@color/mainText</item>
+        <item name="android:textSize">20sp</item>
+        <item name="android:lineSpacingMultiplier">1.75</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="PizzaListTitle" parent="@style/TextAppearance.AppCompat.Headline">
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">24sp</item>
+        <item name="android:lineSpacingMultiplier">1.33</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="PizzaListSubTitle" parent="@style/TextAppearance.AppCompat.Subhead">
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">13sp</item>
+        <item name="android:lineSpacingMultiplier">1.15</item>
+        <item name="android:fontFamily">sans-serif</item>
+    </style>
+
+    <style name="PizzaListPrice" parent="@style/TextAppearance.AppCompat.Body1">
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:lineSpacingMultiplier">1.25</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="PizzaListOrderBtn" parent="@style/TextAppearance.AppCompat.Widget.Button.Colored">
+        <item name="android:background">@drawable/rounded_btn</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:lineSpacingMultiplier">1.25</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:drawableLeft">@drawable/cart_small</item>
+        <item name="android:layout_height">30dp</item>
+        <item name="android:layout_width">64dp</item>
+        <item name="android:padding">6dp</item>
+        <item name="android:layout_marginTop">16dp</item>
+        <item name="android:fontFamily">sans-serif</item>
+
+    </style>
+
+    <style name="PizzaDetailBlock" parent="@style/TextAppearance.AppCompat.Body1">
+        <item name="android:background">@color/pizzaDetailBlock</item>
+        <item name="android:padding">16dp</item>
+    </style>
+
+    <style name="IngredientsTitle">
+        <item name="android:textColor">@color/addToCartBg</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:lineSpacingMultiplier">1.14</item>
+        <item name="android:fontFamily">sans-serif-medium</item>
+    </style>
+
+    <style name="IngredientsListTitle" parent="@style/TextAppearance.AppCompat.Subhead">
+        <item name="android:textColor">@color/ingredientsTitle</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:lineSpacingMultiplier">1.5</item>
+        <item name="android:fontFamily">sans-serif</item>
+    </style>
+
+    <style name="IngredientsListPrice" parent="@style/TextAppearance.AppCompat.Body1">
+        <item name="android:textColor">@color/ingredientsPrice</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:lineSpacingMultiplier">1.14</item>
+        <item name="android:fontFamily">sans-serif</item>
+    </style>
+
+    <style name="BtnText" parent="@style/TextAppearance.AppCompat.Body1">
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:lineSpacingMultiplier">1.25</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="BtnTextItalic" parent="@style/TextAppearance.AppCompat.Body1">
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:lineSpacingMultiplier">1.25</item>
+        <item name="android:textStyle">bold|italic</item>
+    </style>
+
+    <style name="CartBadge" parent="@style/TextAppearance.AppCompat.Body1">
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="ConfirmText" parent="@style/TextAppearance.AppCompat.Body1">
+        <item name="android:textColor">@color/mainText</item>
+        <item name="android:textSize">46sp</item>
+        <item name="android:lineSpacingMultiplier">1.17</item>
+        <item name="android:fontFamily">sans-serif-light</item>
+        <item name="android:textStyle">italic</item>
+        <item name="android:textAlignment">center</item>
+        <item name="android:paddingLeft">40dp</item>
+        <item name="android:paddingRight">40dp</item>
+    </style>
+
+    <style name="IngredientListItem" >
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">56dp</item>
+        <item name="android:paddingStart">16dp</item>
+        <item name="android:paddingEnd">16dp</item>
+        <item name="android:paddingTop">9dp</item>
+        <item name="android:paddingBottom">9dp</item>
+    </style>
+
+    <style name="IngredientCheckBox" parent="Theme.AppCompat.Light">
+        <item name="colorControlNormal">#010101</item>
+        <item name="colorControlActivated">@color/mainText</item>
+        <item name="android:layout_width">32dp</item>
+        <item name="android:layout_height">32dp</item>
+    </style>
+
+    <style name="BottomCtaBtn" parent="Widget.AppCompat.Button.Borderless">
+        <item name="colorButtonNormal">@color/mainText</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">50dp</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:lineSpacingMultiplier">1.25</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+
+
+
+
+</resources>
