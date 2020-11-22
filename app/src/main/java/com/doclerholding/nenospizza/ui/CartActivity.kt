@@ -10,8 +10,10 @@ import com.doclerholding.nenospizza.R
 import com.doclerholding.nenospizza.data.adapter.CartAdapter
 import com.doclerholding.nenospizza.data.beans.Drink
 import com.doclerholding.nenospizza.data.beans.Pizza
+import com.doclerholding.nenospizza.data.responses.Status
+import com.doclerholding.nenospizza.utils.isConnectedToNetwork
 import kotlinx.android.synthetic.main.activity_cart.*
-import kotlinx.android.synthetic.main.checkout_process_block.*
+import kotlinx.android.synthetic.main.checkout_success_block.*
 import kotlinx.android.synthetic.main.toolbar.*
 
 class CartActivity : BaseActivity() {
@@ -22,7 +24,7 @@ class CartActivity : BaseActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_cart)
 
-        setToolBar("Cart",this)
+        setToolBar(getString(R.string.cart_title),this)
 
         cartRepository.viewmodel = cartModel
         setContent()
@@ -70,7 +72,7 @@ class CartActivity : BaseActivity() {
                 check_out_cart.isClickable=true
             }
 
-            check_out_cart.text= "Checkout ($${it.toString()})"
+            check_out_cart.text= getString(R.string.checkout)+" ($${it.toString()})"
         })
     }
 
@@ -80,7 +82,7 @@ class CartActivity : BaseActivity() {
     }
 
 
-    private fun checkoutOnClick(){
+    private fun showSuccess(){
         toolbar.visibility = View.GONE
         order_success.visibility = View.VISIBLE
 
@@ -88,6 +90,35 @@ class CartActivity : BaseActivity() {
             cartRepository.clear()
             pizzaRepository.clearSelectedPizza()
             finish();
+        }
+
+    }
+
+    private fun checkoutOnClick() {
+        if (this.isConnectedToNetwork()) {
+
+            cartModel.sendOrder(cartRepository.getCheckoutData()).observe(this, Observer {
+
+                it?.let { resource ->
+                    when (resource.status) {
+                        Status.SUCCESS -> {
+
+                            resource.data?.let {
+                                showSuccess()
+                            }
+                        }
+                        Status.ERROR -> {
+                            resource.message?.let { it1 -> showError(it1) }
+                        }
+                        Status.LOADING -> {
+                        }
+                    }
+
+                }
+            })
+
+        }else{
+            showError(getString(R.string.general_no_internet_connection))
         }
 
     }

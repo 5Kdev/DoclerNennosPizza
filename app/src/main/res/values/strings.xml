@@ -1,109 +1,17 @@
 <resources>
     <string name="app_name">NennosPizza</string>
-    <string name="general_connection_lost">A kapcsolat megszakadt. Kérjük, próbálkozzon újra később.</string>
-    <string name="general_timeout">Technikai okok miatt, kérjük, próbálkozzon újra később.</string>
-    <string name="general_no_internet_connection">Nincs internetkapcsolat</string>
-    <string name="general_server_not_available">A szerver átmenetileg nem elérhető. Kérjük, próbálkozzon később</string>
-    <string name="general_unknown_error">Ismeretlen hiba történt. Kérjük, próbálkozzon újra később!</string>
+    <string name="general_no_internet_connection">No Internet connectivity!</string>
     <string name="pizzaimage">pizzaImage</string>
     <string name="confirm_order_text">Thank you for your order</string>
-    <string name="pizzas">{
-  "basePrice": 4,
-  "pizzas": [
-    {
-      "ingredients": [
-        1,
-        2
-      ],
-      "name": "Margherita",
-      "imageUrl": "https://doclerlabs.github.io/mobile-native-challenge/images/pizza_PNG44095.png"
-    },
-    {
-      "ingredients": [
-        1,
-        5
-      ],
-      "name": "Ricci",
-      "imageUrl": "https://doclerlabs.github.io/mobile-native-challenge/images/pizza_PNG44092.png"
-    },
-    {
-      "ingredients": [
-        1,
-        2,
-        3,
-        4
-      ],
-      "name": "Boscaiola",
-      "imageUrl": "https://doclerlabs.github.io/mobile-native-challenge/images/pizza_PNG44090.png"
-    },
-    {
-      "ingredients": [
-        1,
-        5,
-        6
-      ],
-      "name": "Primavera",
-      "imageUrl": "https://doclerlabs.github.io/mobile-native-challenge/images/pizza_PNG44077.png"
-    },
-    {
-      "ingredients": [
-        1,
-        2,
-        7,
-        8
-      ],
-      "name": "Hawaii",
-      "imageUrl": "https://doclerlabs.github.io/mobile-native-challenge/images/pizza_PNG44073.png"
-    },
-    {
-      "ingredients": [
-        1,
-        9,
-        10
-      ],
-      "name": "Mare Bianco"
-    },
-    {
-      "ingredients": [
-        1,
-        2,
-        4,
-        8,
-        9,
-        10
-      ],
-      "name": "Mari e monti",
-      "imageUrl": "https://doclerlabs.github.io/mobile-native-challenge/images/pizza_PNG44075.png"
-    },
-    {
-      "ingredients": [
-        1,
-        9
-      ],
-      "name": "Bottarga",
-      "imageUrl": "https://doclerlabs.github.io/mobile-native-challenge/images/pizza_PNG44071.png"
-    },
-    {
-      "ingredients": [
-        1,
-        2,
-        9,
-        6
-      ],
-      "name": "Boottarga e Asparagi",
-      "imageUrl": "https://doclerlabs.github.io/mobile-native-challenge/images/pizza_PNG44068_error_on_purpose.png"
-    },
-    {
-      "ingredients": [
-        1,
-        5,
-        6
-      ],
-      "name": "Ricci e Asparagi",
-      "imageUrl": "https://doclerlabs.github.io/mobile-native-challenge/images/pizza_PNG44066.png"
-    }
-  ]
-}</string>
+    <string name="dialogTitle">Error!</string>
+    <string name="cart_title">Cart</string>
+    <string name="checkout">Checkout</string>
+    <string name="add_to_cart">Add to cart</string>
+
+    <string name="drinks_title">Drinks</string>
+    <string name="main_title">Nenno’s Pizza</string>
+    <string name="data_init_error">Data initialization error! Please try again!</string>
+    <string name="custom_pizza_name">Custom Pizza</string>
 
 
 </resources>

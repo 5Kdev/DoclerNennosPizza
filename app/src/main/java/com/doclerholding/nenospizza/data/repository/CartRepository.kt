@@ -5,7 +5,8 @@ import android.util.Log
 import com.doclerholding.nenospizza.data.beans.Cart
 import com.doclerholding.nenospizza.data.beans.Drink
 import com.doclerholding.nenospizza.data.beans.Pizza
-import com.doclerholding.nenospizza.ui.viewmodels.CartViewModel
+import com.doclerholding.nenospizza.data.request.CheckoutRequest
+import com.doclerholding.nenospizza.viewmodels.CartViewModel
 import com.google.gson.Gson
 
 
@@ -72,6 +73,9 @@ class CartRepository{
     }
 
     fun updateData(){
+        if(summaryPrice<0) summaryPrice=0.0
+        if(itemNum<0) itemNum=0
+
         viewmodel?.sumPrice?.value = summaryPrice
         viewmodel?.itemNum?.value = itemNum
     }
@@ -108,6 +112,19 @@ class CartRepository{
         }catch (e: Exception){
             Log.e("GSON", e.toString())
         }
+    }
+
+    fun getCheckoutData(): CheckoutRequest{
+
+        var drinkIds: MutableList<Long> = mutableListOf()
+
+        for(drink:Drink in drinks){
+            drinkIds.add(drink.id)
+        }
+
+        val request: CheckoutRequest = CheckoutRequest(pizzas,drinkIds)
+
+        return request;
     }
 
 

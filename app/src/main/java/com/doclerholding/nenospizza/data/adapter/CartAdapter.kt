@@ -1,6 +1,5 @@
 package com.doclerholding.nenospizza.data.adapter
 
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -12,12 +11,10 @@ import com.doclerholding.nenospizza.R
 import com.doclerholding.nenospizza.data.beans.CartItem
 import com.doclerholding.nenospizza.data.beans.Drink
 import com.doclerholding.nenospizza.data.beans.Pizza
-import java.text.NumberFormat
-import java.util.*
 
 
 class CartAdapter(pizzas: MutableList<Pizza>,drinks: MutableList<Drink>) : RecyclerView.Adapter<CartAdapter.CartListViewHolder>() {
-    private var cart_items: MutableList<CartItem> = mutableListOf()
+    private var cartItems: MutableList<CartItem> = mutableListOf()
     internal var onItemClick: ((Any) -> Unit)? = null
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CartListViewHolder {
@@ -26,12 +23,12 @@ class CartAdapter(pizzas: MutableList<Pizza>,drinks: MutableList<Drink>) : Recyc
     }
 
     override fun onBindViewHolder(viewHolder: CartListViewHolder, position: Int) {
-        val item: CartItem = cart_items[position]
-        viewHolder.cart_item_name.setText(item.name)
-        viewHolder.cart_item_price.setText("$"+ item.price.toString())
-
+        val item: CartItem = cartItems[position]
+        viewHolder.cart_item_name.text = item.name
+        viewHolder.cart_item_price.text = "$"+ item.price.toString()
+        viewHolder.cart_item_delete.isClickable=false
         viewHolder.cart_item_container.setOnClickListener {
-            cart_items.remove(item)
+            cartItems.remove(item)
             notifyDataSetChanged()
 
             if (item is Drink) {
@@ -46,14 +43,14 @@ class CartAdapter(pizzas: MutableList<Pizza>,drinks: MutableList<Drink>) : Recyc
     }
 
     fun setData(pizzas: MutableList<Pizza>,drinks: MutableList<Drink>){
-        cart_items.clear()
-        cart_items.addAll(pizzas)
-        cart_items.addAll(drinks)
+        cartItems.clear()
+        cartItems.addAll(pizzas)
+        cartItems.addAll(drinks)
         notifyDataSetChanged()
     }
 
     override fun getItemCount(): Int {
-        return cart_items.size
+        return cartItems.size
     }
 
     class CartListViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {
@@ -72,7 +69,7 @@ class CartAdapter(pizzas: MutableList<Pizza>,drinks: MutableList<Drink>) : Recyc
     }
 
     init {
-        cart_items.addAll(pizzas)
-        cart_items.addAll(drinks)
+        cartItems.addAll(pizzas)
+        cartItems.addAll(drinks)
     }
 }

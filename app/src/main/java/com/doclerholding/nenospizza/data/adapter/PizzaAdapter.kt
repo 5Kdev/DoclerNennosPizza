@@ -11,11 +11,9 @@ import androidx.recyclerview.widget.RecyclerView
 import com.doclerholding.nenospizza.R
 import com.doclerholding.nenospizza.data.beans.Pizza
 import com.squareup.picasso.Picasso
-import java.text.NumberFormat
-import java.util.*
 
 class PizzaAdapter(items: List<Pizza>) : RecyclerView.Adapter<PizzaAdapter.PizzaListViewHolder>() {
-    private val pizza_items: List<Pizza>
+    private val pizzaItems: List<Pizza> = items
     internal var onItemClick: ((Pizza) -> Unit)? = null
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PizzaListViewHolder {
@@ -28,11 +26,11 @@ class PizzaAdapter(items: List<Pizza>) : RecyclerView.Adapter<PizzaAdapter.Pizza
     }
 
     override fun onBindViewHolder(viewHolder: PizzaListViewHolder, position: Int) {
-        val item: Pizza = pizza_items[position]
-        viewHolder.pizza_name.setText(item.name)
-        viewHolder.pizza_ingredients.setText(item.getIngredientsString())
+        val item: Pizza = pizzaItems[position]
+        viewHolder.pizza_name.text = item.name
+        viewHolder.pizza_ingredients.text = item.getIngredientsString()
 
-        viewHolder.pizza_order_btn.setText("$"+ item.price.toString())
+        viewHolder.pizza_order_btn.text = "$"+ item.price.toString()
 
         Picasso.get()
                 .load(item.imageUrl)
@@ -46,7 +44,7 @@ class PizzaAdapter(items: List<Pizza>) : RecyclerView.Adapter<PizzaAdapter.Pizza
     }
 
     override fun getItemCount(): Int {
-        return pizza_items.size
+        return pizzaItems.size
     }
 
     class PizzaListViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {
@@ -65,8 +63,4 @@ class PizzaAdapter(items: List<Pizza>) : RecyclerView.Adapter<PizzaAdapter.Pizza
         }
     }
 
-    init {
-        pizza_items = items
-
-    }
 }

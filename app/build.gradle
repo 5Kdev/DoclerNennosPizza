@@ -20,13 +20,16 @@ android {
     }
 
     def serverUrl = "\"https://doclerlabs.github.io/mobile-native-challenge/\""
+    def checkoutServerUrl = "\"http://httpbin.org/\""
 
     buildTypes {
         debug{
             buildConfigField 'String', 'SERVER_URL', serverUrl
+            buildConfigField 'String', 'CHECKOUT_SERVER_URL', checkoutServerUrl
         }
         release {
             buildConfigField 'String', 'SERVER_URL', serverUrl
+            buildConfigField 'String', 'CHECKOUT_SERVER_URL', checkoutServerUrl
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
@@ -46,17 +49,20 @@ dependencies {
     implementation "androidx.core:core-ktx:$core_ktx_version"
     implementation "androidx.constraintlayout:constraintlayout:$constraintlayout_version"
 
+
     implementation "com.google.android.material:material:$material_version"
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutine_version"
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:$coroutine_version"
 
     implementation "com.squareup.retrofit2:retrofit:$retrofit_version"
     implementation "com.squareup.retrofit2:converter-gson:$retrofit_converter_version"
+    implementation "com.squareup.retrofit2:converter-scalars:$retrofit_converter_version"
     implementation "com.squareup.okhttp3:logging-interceptor:$okhttp_interceptor_version"
     implementation "com.squareup.okhttp3:okhttp-urlconnection:$okhttp_urlconnection_version"
 
     implementation "android.arch.lifecycle:extensions:$architecture_component_version"
     implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$architecture_component_version"
+    implementation "androidx.lifecycle:lifecycle-livedata-ktx:$architecture_component_version"
     implementation "android.arch.lifecycle:common-java8:$architecture_component_version"
     implementation "android.arch.lifecycle:reactivestreams:$architecture_component_version"
 

@@ -7,15 +7,11 @@ import android.widget.CheckBox
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.doclerholding.nenospizza.R
-import com.doclerholding.nenospizza.data.beans.CartItem
 import com.doclerholding.nenospizza.data.beans.Ingredient
-import com.doclerholding.nenospizza.data.beans.Pizza
-import java.text.NumberFormat
-import java.util.*
 
 
 class IngredientAdapter(items: List<Ingredient>) : RecyclerView.Adapter<IngredientAdapter.IngredientListViewHolder>() {
-    private val ingredient_items: List<Ingredient>
+    private val ingredientItems: List<Ingredient> = items
     internal var onItemClick: ((Ingredient) -> Unit)? = null
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): IngredientListViewHolder {
@@ -24,28 +20,27 @@ class IngredientAdapter(items: List<Ingredient>) : RecyclerView.Adapter<Ingredie
     }
 
     override fun onBindViewHolder(viewHolder: IngredientListViewHolder, position: Int) {
-        val item: Ingredient = ingredient_items[position]
-        viewHolder.ingredent_item_name.setText(item.name)
-        viewHolder.ingredent_item_price.setText("$"+ item.price.toString())
+        val item: Ingredient = ingredientItems[position]
+        viewHolder.ingredent_item_name.text = item.name
+        viewHolder.ingredent_item_price.text = "$" + item.price.toString()
 
-        viewHolder.ingredent_item_chkbox.setChecked(item.selected);
+        viewHolder.ingredent_item_chkbox.isChecked = item.selected;
 
-        viewHolder.ingredent_item_chkbox.setOnCheckedChangeListener({
-                buttonView, isChecked ->
-            if (isChecked){
-                ingredient_items[position].selected=true
-            }else{
-                ingredient_items[position].selected=false
-            }
-        })
+        viewHolder.ingredent_item_chkbox.setOnCheckedChangeListener { _, isChecked ->
+            ingredientItems[position].selected = isChecked
+        }
 
         viewHolder.ingredent_item_chkbox.setOnClickListener {
-            onItemClick?.invoke(ingredient_items[position])
+            onItemClick?.invoke(ingredientItems[position])
         }
     }
 
+    override fun getItemViewType(position: Int): Int {
+        return position
+    }
+
     override fun getItemCount(): Int {
-        return ingredient_items.size
+        return ingredientItems.size
     }
 
     class IngredientListViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {
@@ -60,7 +55,4 @@ class IngredientAdapter(items: List<Ingredient>) : RecyclerView.Adapter<Ingredie
         }
     }
 
-    init {
-        ingredient_items = items
-    }
 }

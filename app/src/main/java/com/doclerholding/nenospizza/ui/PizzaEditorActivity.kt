@@ -6,10 +6,8 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.doclerholding.nenospizza.R
 import com.doclerholding.nenospizza.data.adapter.IngredientAdapter
 import com.doclerholding.nenospizza.data.beans.Ingredient
-import com.doclerholding.nenospizza.data.beans.Pizza
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.activity_pizza_editor.*
-import javax.inject.Inject
 
 class PizzaEditorActivity : BaseActivity() {
 
@@ -17,7 +15,7 @@ class PizzaEditorActivity : BaseActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_pizza_editor)
 
-        var title: String = "Custom Pizza" ;
+        var title: String = getString(R.string.custom_pizza_name) ;
 
         if(pizzaRepository.getSelectedPizza() != null){
             title = pizzaRepository.getSelectedPizza()?.name.toString()
@@ -40,7 +38,7 @@ class PizzaEditorActivity : BaseActivity() {
     }
 
     private fun setContent(){
-        val ingredientsAdapter: IngredientAdapter = IngredientAdapter(pizzaRepository.getSelectedIgredientsList())
+        val ingredientsAdapter: IngredientAdapter = IngredientAdapter(pizzaRepository.getSelectedIngredientsList())
 
         ingredients_list.setHasFixedSize(true)
         ingredients_list.adapter = ingredientsAdapter
@@ -60,7 +58,7 @@ class PizzaEditorActivity : BaseActivity() {
 
     private fun setLiveData(){
         cartModel.sumPrice?.observe(this, Observer {
-            add_to_cart.text= "Add to cart  ($${it.toString()})"
+            add_to_cart.text= getString(R.string.add_to_cart)+"  ($${it.toString()})"
         })
     }
 

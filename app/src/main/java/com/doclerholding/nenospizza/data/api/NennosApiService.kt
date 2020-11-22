@@ -8,17 +8,14 @@ import retrofit2.http.POST
 
 interface NennosApiService {
 
-    @GET("ingerdients.json")
-    suspend fun getIngredients(): Any
+    @GET("ingredients.json")
+    suspend fun getIngredients(): String
 
     @GET("drinks.json")
-    suspend fun getDrinks(): Any
+    suspend fun getDrinks(): String
 
     @GET("pizzas.json")
-    suspend fun getPizzas(): Response<Pizzas>
-
-    @POST("/post")
-    suspend fun checkoutOrder(@Body body :Any):Any
+    suspend fun getPizzas(): String
 
 }
 

@@ -9,11 +9,9 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.doclerholding.nenospizza.R
 import com.doclerholding.nenospizza.data.beans.Drink
-import java.text.NumberFormat
-import java.util.*
 
 class DrinkAdapter(items: List<Drink>) : RecyclerView.Adapter<DrinkAdapter.CartListViewHolder>() {
-    private val drink_items: List<Drink>
+    private val drinkItems: List<Drink> = items
     internal var onItemClick: ((Drink) -> Unit)? = null
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CartListViewHolder {
@@ -22,16 +20,17 @@ class DrinkAdapter(items: List<Drink>) : RecyclerView.Adapter<DrinkAdapter.CartL
     }
 
     override fun onBindViewHolder(viewHolder: CartListViewHolder, position: Int) {
-        val item: Drink = drink_items[position]
-        viewHolder.drink_item_name.setText(item.name)
-        viewHolder.drink_item_price.setText("$"+ item.price.toString())
+        val item: Drink = drinkItems[position]
+        viewHolder.drink_item_name.text = item.name
+        viewHolder.drink_item_price.text = "$"+ item.price.toString()
+        viewHolder.drink_item_add.isClickable=false
         viewHolder.drink_item_container.setOnClickListener {
             onItemClick?.invoke(item)
         }
     }
 
     override fun getItemCount(): Int {
-        return drink_items.size
+        return drinkItems.size
     }
 
     class CartListViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {
@@ -48,7 +47,4 @@ class DrinkAdapter(items: List<Drink>) : RecyclerView.Adapter<DrinkAdapter.CartL
         }
     }
 
-    init {
-        drink_items = items
-    }
 }

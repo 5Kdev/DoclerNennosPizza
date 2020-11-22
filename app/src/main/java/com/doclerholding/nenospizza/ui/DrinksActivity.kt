@@ -13,7 +13,7 @@ class DrinksActivity : BaseActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_drinks)
 
-        setToolBar("Drinks",this);
+        setToolBar(getString(R.string.drinks_title),this);
 
         setContent()
     }

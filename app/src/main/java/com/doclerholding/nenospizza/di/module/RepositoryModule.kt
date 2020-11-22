@@ -18,8 +18,8 @@ class RepositoryModule {
 
     @Provides
     @Singleton
-    fun providePizzaRepository(api: NennosApiService) : PizzaRepository {
-        return PizzaRepository(api)
+    fun providePizzaRepository() : PizzaRepository {
+        return PizzaRepository()
     }
 
     @Provides
