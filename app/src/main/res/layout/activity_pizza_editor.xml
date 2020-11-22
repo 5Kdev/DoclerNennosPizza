@@ -31,9 +31,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Ingredients"
-                style="@style/IngredientsTitle"
-                android:padding="8dp"
-                android:paddingLeft="15dp"/>
+                style="@style/IngredientsTitle" />
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/ingredients_list"
@@ -50,13 +48,19 @@
 
     <include layout="@layout/toolbar" />
 
-    <Button
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/add_to_cart"
         style="@style/BottomCtaBtn"
-        android:text="Back to home"
         android:layout_gravity="bottom"
-        android:background="@color/mainText"
-        tools:ignore="MissingConstraints" />
+        android:clickable="true"
+        android:text="Back to home"
+        app:backgroundTint="@color/orderBtn"
+        app:cornerRadius="0dp"
+        app:icon="@drawable/cart_small"
+        app:iconGravity="textStart" />
+
+    <include android:id="@+id/buttonProcessPizza" layout="@layout/btn_process_block" android:visibility="gone" />
+
 
 
 </FrameLayout>

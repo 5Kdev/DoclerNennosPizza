@@ -1,15 +1,10 @@
 package com.doclerholding.nenospizza.ui
 
 import android.os.Bundle
-import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.doclerholding.nenospizza.R
-import com.doclerholding.nenospizza.data.adapter.CartAdapter
 import com.doclerholding.nenospizza.data.adapter.DrinkAdapter
 import com.doclerholding.nenospizza.data.beans.Drink
-import com.doclerholding.nenospizza.data.beans.Pizza
-import kotlinx.android.synthetic.main.activity_cart.*
-import kotlinx.android.synthetic.main.activity_cart.cart_list
 import kotlinx.android.synthetic.main.activity_drinks.*
 import kotlinx.android.synthetic.main.toolbar.*
 
@@ -36,7 +31,7 @@ class DrinksActivity : BaseActivity() {
 
     private fun adapterOnClick(item: Drink){
         cartRepository.addDrink(item)
-        finish()
+        addToCartAnimation(buttonProcessDrinks)
     }
 
 }

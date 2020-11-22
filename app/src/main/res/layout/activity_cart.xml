@@ -4,10 +4,12 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/white">
 
 
     <androidx.recyclerview.widget.RecyclerView
+        android:paddingTop="19dp"
         android:layout_marginTop="?attr/actionBarSize"
         android:id="@+id/cart_list"
         android:layout_width="match_parent"
@@ -19,16 +21,15 @@
         tools:listitem="@layout/cart_list_item" />
 
     <Button
-        android:background="@color/addToCartEditBg"
+        style="@style/BottomCheckout"
         android:id="@+id/check_out_cart"
-        style="@style/BottomCtaBtn"
-        android:text="Back to home"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         tools:ignore="MissingConstraints" />
 
     <include layout="@layout/toolbar" />
+    <include android:id="@+id/order_success" layout="@layout/checkout_success_block" android:visibility="gone" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

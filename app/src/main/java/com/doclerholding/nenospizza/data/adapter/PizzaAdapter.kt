@@ -32,7 +32,7 @@ class PizzaAdapter(items: List<Pizza>) : RecyclerView.Adapter<PizzaAdapter.Pizza
         viewHolder.pizza_name.setText(item.name)
         viewHolder.pizza_ingredients.setText(item.getIngredientsString())
 
-        viewHolder.pizza_order_btn.setText("$"+NumberFormat.getCurrencyInstance(Locale("US", "en")).format(item.price))
+        viewHolder.pizza_order_btn.setText("$"+ item.price.toString())
 
         Picasso.get()
                 .load(item.imageUrl)

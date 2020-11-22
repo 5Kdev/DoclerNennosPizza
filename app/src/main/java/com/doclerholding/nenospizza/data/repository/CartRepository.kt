@@ -63,6 +63,14 @@ class CartRepository{
         return itemNum
     }
 
+    fun clear(){
+        pizzas.clear()
+        drinks.clear()
+        summaryPrice= 0.0
+        itemNum= 0
+        updateData()
+    }
+
     fun updateData(){
         viewmodel?.sumPrice?.value = summaryPrice
         viewmodel?.itemNum?.value = itemNum

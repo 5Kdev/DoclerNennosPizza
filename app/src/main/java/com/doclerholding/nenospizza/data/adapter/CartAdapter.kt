@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageButton
+import android.widget.RelativeLayout
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.doclerholding.nenospizza.R
@@ -27,9 +28,9 @@ class CartAdapter(pizzas: MutableList<Pizza>,drinks: MutableList<Drink>) : Recyc
     override fun onBindViewHolder(viewHolder: CartListViewHolder, position: Int) {
         val item: CartItem = cart_items[position]
         viewHolder.cart_item_name.setText(item.name)
-        viewHolder.cart_item_price.setText("$"+ NumberFormat.getCurrencyInstance(Locale("US", "en")).format(item.price))
+        viewHolder.cart_item_price.setText("$"+ item.price.toString())
 
-        viewHolder.cart_item_delete.setOnClickListener {
+        viewHolder.cart_item_container.setOnClickListener {
             cart_items.remove(item)
             notifyDataSetChanged()
 
@@ -59,11 +60,14 @@ class CartAdapter(pizzas: MutableList<Pizza>,drinks: MutableList<Drink>) : Recyc
         var cart_item_name: TextView
         var cart_item_price: TextView
         var cart_item_delete: ImageButton
+        var cart_item_container: RelativeLayout
 
         init {
             cart_item_name = itemView.findViewById<View>(R.id.ingredientName) as TextView
             cart_item_price = itemView.findViewById<View>(R.id.ingredientPrice) as TextView
             cart_item_delete = itemView.findViewById<View>(R.id.cartListDelete) as ImageButton
+            cart_item_container = itemView.findViewById<View>(R.id.cartItemContainer) as RelativeLayout
+
         }
     }
 

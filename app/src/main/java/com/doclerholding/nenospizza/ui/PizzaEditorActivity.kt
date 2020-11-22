@@ -60,7 +60,7 @@ class PizzaEditorActivity : BaseActivity() {
 
     private fun setLiveData(){
         cartModel.sumPrice?.observe(this, Observer {
-            add_to_cart.text= "Add to cart ($${it.toString()})"
+            add_to_cart.text= "Add to cart  ($${it.toString()})"
         })
     }
 
@@ -69,9 +69,12 @@ class PizzaEditorActivity : BaseActivity() {
     }
 
     private fun onAddToCartClick(){
-       cartRepository.addPizza(pizzaRepository.getSelectedPizza()!!)
-       pizzaRepository.clearSelectedPizza()
-       finish()
+        if(pizzaRepository.getSelectedPizza()!=null) {
+            cartRepository.addPizza(pizzaRepository.getSelectedPizza()!!)
+            pizzaRepository.clearSelectedPizza()
+
+            addToCartAnimation(buttonProcessPizza)
+        }
     }
 
 

@@ -46,12 +46,6 @@ class MainActivity : BaseActivity() {
 
     private fun setLiveData(){
         cartModel.itemNum?.observe(this, Observer {
-//            if(it<1){
-//                cartBadge.visibility= View.GONE
-//            }else{
-//                cartBadge.visibility= View.VISIBLE
-//            }
-
             cartBadgeItemNum.text= it.toString()
         })
     }

@@ -26,7 +26,7 @@ class IngredientAdapter(items: List<Ingredient>) : RecyclerView.Adapter<Ingredie
     override fun onBindViewHolder(viewHolder: IngredientListViewHolder, position: Int) {
         val item: Ingredient = ingredient_items[position]
         viewHolder.ingredent_item_name.setText(item.name)
-        viewHolder.ingredent_item_price.setText("$"+ NumberFormat.getCurrencyInstance(Locale("US", "en")).format(item.price))
+        viewHolder.ingredent_item_price.setText("$"+ item.price.toString())
 
         viewHolder.ingredent_item_chkbox.setChecked(item.selected);
 

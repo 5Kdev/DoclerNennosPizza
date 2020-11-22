@@ -1,10 +1,13 @@
 package com.doclerholding.nenospizza.ui
 
+import android.animation.Animator
+import android.animation.AnimatorListenerAdapter
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.ViewCompat.animate
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProviders
 import com.doclerholding.nenospizza.R
@@ -14,6 +17,7 @@ import com.doclerholding.nenospizza.ui.viewmodels.CartViewModel
 import com.google.android.material.snackbar.Snackbar
 import dagger.android.AndroidInjector
 import dagger.android.support.HasSupportFragmentInjector
+import kotlinx.android.synthetic.main.activity_cart.*
 import kotlinx.android.synthetic.main.toolbar.*
 import javax.inject.Inject
 
@@ -44,23 +48,22 @@ open class BaseActivity : AppCompatActivity(), HasSupportFragmentInjector {
     }
 
 
-    override fun onStart() {
-        super.onStart()
-    }
-
-
-    override fun onResume() {
-        super.onResume()
-        baseActivity = this
-    }
-
     override fun onPause() {
         cartRepository.saveCartData(this.getSharedPreferences(getString(R.string.app_name), MODE_PRIVATE).edit());
         super.onPause()
     }
 
-    override fun onStop() {
-        super.onStop()
+    fun addToCartAnimation(v: View) {
+        v.visibility = View.VISIBLE
+
+        v.animate()
+                .alpha(0f)
+                .setDuration(3000)
+                .setListener(object : AnimatorListenerAdapter() {
+                    override fun onAnimationEnd(animation: Animator) {
+                        v.visibility = View.GONE
+                    }
+                })
     }
 
     fun showError(key: String?) {
